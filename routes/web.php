@@ -8,6 +8,7 @@ use App\Http\Controllers\FuelLogController;
 use App\Http\Controllers\MaintenanceJobController;
 use App\Http\Controllers\ProductionLogController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\ResourceItemController;
 use App\Http\Controllers\SafetyIncidentController;
 use App\Http\Controllers\SiteController;
@@ -40,6 +41,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('resource_items', ResourceItemController::class);
     Route::resource('staff', StaffController::class);
     Route::resource('attendance_logs', AttendanceLogController::class);
+    Route::resource('reports', ReportController::class);
 });
 
 require __DIR__ . '/auth.php';

@@ -3,7 +3,7 @@
 @section('content')
 <div class="container mt-4">
 
-    <h1 class="mb-4">Trinity Metals Musha Dashboard</h1>
+    <h4 class="mb-4">Trinity Metals Musha Dashboard</h4>
 
     <div class="row">
 

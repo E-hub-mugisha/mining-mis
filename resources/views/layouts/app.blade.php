@@ -6,42 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Mining Management System') }}</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <link rel="stylesheet" href="assets/css/dashlitee1e3.css?ver=3.2.4">
-    <link id="skin-default" rel="stylesheet" href="assets/css/themee1e3.css?ver=3.2.4">
+    <link rel="stylesheet" href="{{ asset('assets/css/dashlitee1e3.css?ver=3.2.4') }}">
+    <link id="skin-default" rel="stylesheet" href="{{ asset('assets/css/themee1e3.css?ver=3.2.4') }}">
     <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
 </head>
 
-<body class="font-sans antialiased">
-    <div class="min-h-screen bg-gray-100">
-        @include('layouts.navigation')
+<body class="nk-body bg-lighter npc-general has-sidebar ">
+    <div class="nk-app-root">
+        <div class="nk-main ">
+            @include('layouts.sidebar')
+            <div class="nk-wrap ">
+                @include('layouts.navigation')
 
-        <!-- Page Heading -->
-        @isset($header)
-        <header class="bg-white shadow">
-            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                {{ $header }}
+                <div class="nk-content ">
+                    @yield('content')
+                </div>
+                <div class="nk-footer">
+                    <div class="container-fluid">
+                        <div class="nk-footer-wrap">
+                            <div class="nk-footer-copyright align-center"> &copy; {{ date('Y') }} {{ config('app.name') }}. All rights reserved.</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </header>
-        @endisset
-
-        <!-- Page Content -->
-        <main>
-            @yield('content')
-        </main>
+        </div>
     </div>
 
-    <script src="assets/js/bundlee1e3.js?ver=3.2.4"></script>
-    <script src="assets/js/scriptse1e3.js?ver=3.2.4"></script>
-    <script src="assets/js/demo-settingse1e3.js?ver=3.2.4"></script>
-    <script src="assets/js/charts/gd-defaulte1e3.js?ver=3.2.4"></script>
+    <script src="{{ asset('assets/js/bundlee1e3.js?ver=3.2.4') }}"></script>
+    <script src="{{ asset('assets/js/scriptse1e3.js?ver=3.2.4') }}"></script>
+    <script src="{{ asset('assets/js/demo-settingse1e3.js?ver=3.2.4') }}"></script>
+    <script src="{{ asset('assets/js/charts/gd-defaulte1e3.js?ver=3.2.4') }}"></script>
 </body>
 
 </html>
