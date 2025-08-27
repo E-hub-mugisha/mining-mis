@@ -41,7 +41,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('resource_items', ResourceItemController::class);
     Route::resource('staff', StaffController::class);
     Route::resource('attendance_logs', AttendanceLogController::class);
-    Route::resource('reports', ReportController::class);
+    Route::get('/reports', [ReportController::class, 'index'])->name('reports.index');
+    Route::post('/reports/generate', [ReportController::class, 'generate'])->name('reports.generate');
 });
 
 require __DIR__ . '/auth.php';
